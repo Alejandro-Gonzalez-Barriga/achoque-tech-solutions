@@ -88,10 +88,52 @@ export function HomeHero() {
                 </div>
 
                 <div className="mt-6 grid gap-4">
-                  <CodeLine i={1} t="const roadmap = ['Discovery', 'Build', 'Launch'];" />
-                  <CodeLine i={2} t="const stack = ['Next.js', 'TypeScript', 'AWS', 'OpenAI'];" />
-                  <CodeLine i={3} t="export function ship(value) { return value * velocity; }" />
-                  <CodeLine i={4} t="// measurable outcomes, not just code" muted />
+                  <CodeLine i={1}>
+                    <Token type="keyword">const</Token>{" "}
+                    <Token type="variable">roadmap</Token>{" "}
+                    <Token type="operator">=</Token>{" "}
+                    <Token type="punctuation">[</Token>
+                    <Token type="string">{"'Discovery'"}</Token>
+                    <Token type="punctuation">,</Token>{" "}
+                    <Token type="string">{"'Build'"}</Token>
+                    <Token type="punctuation">,</Token>{" "}
+                    <Token type="string">{"'Launch'"}</Token>
+                    <Token type="punctuation">];</Token>
+                  </CodeLine>
+                  <CodeLine i={2}>
+                    <Token type="keyword">const</Token>{" "}
+                    <Token type="variable">stack</Token>{" "}
+                    <Token type="operator">=</Token>{" "}
+                    <Token type="punctuation">[</Token>
+                    <Token type="string">{"'Next.js'"}</Token>
+                    <Token type="punctuation">,</Token>{" "}
+                    <Token type="string">{"'TypeScript'"}</Token>
+                    <Token type="punctuation">,</Token>{" "}
+                    <Token type="string">{"'AWS'"}</Token>
+                    <Token type="punctuation">,</Token>{" "}
+                    <Token type="string">{"'OpenAI'"}</Token>
+                    <Token type="punctuation">];</Token>
+                  </CodeLine>
+                  <CodeLine i={3}>
+                    <Token type="keyword">export</Token>{" "}
+                    <Token type="keyword">function</Token>{" "}
+                    <Token type="function">ship</Token>
+                    <Token type="punctuation">(</Token>
+                    <Token type="variable">value</Token>
+                    <Token type="punctuation">)</Token>{" "}
+                    <Token type="punctuation">{"{"}</Token>{" "}
+                    <Token type="keyword">return</Token>{" "}
+                    <Token type="variable">value</Token>{" "}
+                    <Token type="operator">*</Token>{" "}
+                    <Token type="variable">velocity</Token>
+                    <Token type="punctuation">;</Token>{" "}
+                    <Token type="punctuation">{"}"}</Token>
+                  </CodeLine>
+                  <CodeLine i={4} muted>
+                    <Token type="comment">
+                      {"// measurable outcomes, not just code"}
+                    </Token>
+                  </CodeLine>
                   <div className="grid gap-3 pt-2 sm:grid-cols-2">
                     <Metric label="Lead time" value="2–6 weeks" />
                     <Metric label="Quality" value="Senior-led" />
@@ -108,13 +150,43 @@ export function HomeHero() {
   );
 }
 
-function CodeLine({ i, t, muted }: { i: number; t: string; muted?: boolean }) {
+function CodeLine({
+  i,
+  children,
+  muted,
+}: {
+  i: number;
+  children: React.ReactNode;
+  muted?: boolean;
+}) {
   return (
-    <div className={cn("flex gap-4 font-mono text-xs", muted && "opacity-70")}>
+    <div className={cn("flex gap-4 font-mono text-xs", muted && "opacity-80")}>
       <span className="w-6 text-right text-muted-foreground">{i}</span>
-      <span className="text-foreground/90">{t}</span>
+      <span className="min-w-0 flex-1 break-words text-foreground/90">
+        {children}
+      </span>
     </div>
   );
+}
+
+function Token({
+  type,
+  children,
+}: {
+  type: "keyword" | "variable" | "operator" | "punctuation" | "string" | "function" | "comment";
+  children: React.ReactNode;
+}) {
+  const classes = {
+    keyword: "text-blue-300",
+    variable: "text-slate-100",
+    operator: "text-indigo-200",
+    punctuation: "text-slate-400",
+    string: "text-emerald-300",
+    function: "text-cyan-300",
+    comment: "text-slate-500 italic",
+  } satisfies Record<typeof type, string>;
+
+  return <span className={classes[type]}>{children}</span>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {
@@ -125,4 +197,3 @@ function Metric({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
-
