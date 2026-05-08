@@ -3,7 +3,7 @@ import { HomeHero } from "@/components/sections/home/hero";
 import { HomePortfolio } from "@/components/sections/home/portfolio";
 import { HomeProcess } from "@/components/sections/home/process";
 import { HomeServices } from "@/components/sections/home/services";
-import { HomeTechnologies } from "@/components/sections/home/technologies";
+import { HomeTechnologies } from "@/components/site/home-technologies";
 import { HomeTestimonials } from "@/components/sections/home/testimonials";
 import { HomeWhy } from "@/components/sections/home/why";
 
