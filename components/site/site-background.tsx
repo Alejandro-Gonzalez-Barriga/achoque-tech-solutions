@@ -19,7 +19,7 @@ export function SiteBackground({ className }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={cn("pointer-events-none fixed inset-0 -z-10", className)}
+      className={cn("pointer-events-none fixed inset-0 -z-10 bg-premium", className)}
     >
       <div className="absolute inset-0 opacity-[0.35] [background-size:28px_28px] bg-grid-fade [mask-image:radial-gradient(circle_at_center,black,transparent_70%)]" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
