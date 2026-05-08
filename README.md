@@ -1,3 +1,44 @@
+## Achoque Tech Solutions — Website
+
+Modern, premium, conversion-focused agency site built with:
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS
+- Framer Motion
+- shadcn/ui-style component primitives
+- Lucide icons
+
+### Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Then open `http://localhost:3000`.
+
+### Production build
+
+```bash
+npm run build
+npm start
+```
+
+### Deployment (Vercel)
+
+- Create a new Vercel project and import this repo/folder.
+- Framework preset: **Next.js**
+- Build command: `npm run build`
+- Output: default
+
+### Notes
+
+- **Sitemap**: `app/sitemap.ts`
+- **Robots**: `app/robots.ts`
+- **Open Graph image**: `app/opengraph-image.tsx`
+- **Icon/Favicon**: `app/icon.tsx`
+- **Brand + site metadata**: `lib/site.ts` (update `url`, email, etc.)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
