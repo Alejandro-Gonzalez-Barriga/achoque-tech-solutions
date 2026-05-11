@@ -7,7 +7,7 @@ export const siteConfig = {
   url: "https://alejandro-gonzalez-barriga.github.io/achoque-tech-solutions",
   links: {
     linkedin: "https://www.linkedin.com/company/achoque-tech-solutions/",
-    email: "hello@achoquetechsolutions.com",
+    email: "alejandro.gonzalez.barriga@gmail.com",
   },
 };
 
