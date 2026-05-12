@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { achoqueFaviconSrc } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const bullets = [
@@ -26,7 +27,14 @@ export function HomeHero() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <Badge variant="soft" className="mb-5">
-                <Sparkles className="mr-1 h-3.5 w-3.5" />
+                <img
+                  src={achoqueFaviconSrc}
+                  alt=""
+                  width={14}
+                  height={14}
+                  className="mr-1 h-3.5 w-3.5"
+                  aria-hidden
+                />
                 Software Development • Technology Consulting • AI Integrations
               </Badge>
               <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">

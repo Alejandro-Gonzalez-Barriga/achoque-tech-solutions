@@ -1,13 +1,14 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Menu, Sparkles } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { siteConfig } from "@/lib/site";
+import { achoqueFaviconSrc, siteConfig } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -78,7 +79,16 @@ export function SiteNavbar() {
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/30 via-indigo-500/20 to-violet-500/30 border border-white/10 shadow-glow">
-              <Sparkles className="h-4 w-4 text-blue-200" />
+              <span className="relative flex h-[85%] w-[85%] items-center justify-center">
+                <Image
+                  src={achoqueFaviconSrc}
+                  alt=""
+                  fill
+                  sizes="31px"
+                  className="h-full w-full object-contain"
+                  aria-hidden
+                />
+              </span>
             </span>
             <span className="font-semibold tracking-tight">
               {siteConfig.shortName}
@@ -144,4 +154,3 @@ export function SiteNavbar() {
     </motion.header>
   );
 }
-
